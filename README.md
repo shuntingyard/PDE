@@ -6,13 +6,27 @@ My Neovim PDE for software engineering and administration. It was designed to ru
 
 ### Linux
 
+```sh
+rm -rf ~/.config/nvim ~/.local/share/nvim
+git clone --depth 1 https://github.com/shuntingyard/PDE.git ~/.config/nvim
+
+```
+
 ### Windows
+
+```sh
+rm -r -fo $HOME\AppData\Local\nvim
+rm -r -fo $HOME\AppData\Local\nvim-data
+git clone --depth 1 https://github.com/shuntingyard/PDE.git $HOME\AppData\Local\nvim
+
+```
 
 ## Requirements
 
 - Better always use the latest stable Neovim version.
 - Run `:checkhealth`.
 - Make sure to have dependencies for `Mason` installed.
+- When `Treesitter` is used, a `C` compiler must be available.
 
 ## What's New?
 
@@ -32,8 +46,13 @@ Contains dependencies and configurations for plugins to be activated on demand. 
 
 Is not tracked by Git, and contains:
 
-- directory `./enabled` for user-created softlinks to activate optional plugins, and
+- directory `./enabled` for user-created soft links to activate optional plugins, and
 - directory `./lsp` with template-based configuration files for Language Servers and `null-ls`.
+
+A note on Windows: soft links are created in a (old school) command prompt - Windows 10 even requires admin privileges for it - e.g.:
+```sh
+mklink treesitter.lua ..\..\optional\available\treesitter.lua
+```
 
 ### .templates
 
