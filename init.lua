@@ -130,7 +130,7 @@ require('lazy').setup({
 
 }, {})
 
--- Lua objects human-readable (thanks bashbunni & Teej):
+-- Lua objects human-readable - thanks bashbunni & Teej :)
 P = function(v)
   print(vim.inspect(v))
   return v

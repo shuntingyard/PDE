@@ -32,8 +32,8 @@ Contains dependencies and configurations for plugins to be activated on demand. 
 
 Is not tracked by Git, and contains:
 
-- directory `enabled` for user-created softlinks to activate optional plugins, and
-- directory `lsp` with template-based configuration files for Language Servers and `null-ls`.
+- directory `./enabled` for user-created softlinks to activate optional plugins, and
+- directory `./lsp` with template-based configuration files for Language Servers and `null-ls`.
 
 ### .templates
 
@@ -42,6 +42,8 @@ Stuff to copy to `lua/yourdir/lsp/` and adapt for specific purposes.
 ## Planned
 
 - [ ] Configure and test optional `DAP` plugins.
+- [ ] Make `mbbill/undotree` available (as an option).
+- [ ] Write a plugin for formatting/highlighting embedded `SQL` (at least from Python and Rust).
 - [ ] Possibly configure and test a Language Server for `prolog`.
 - [ ] Possibly configure and test support for `TLA+`.
 - [ ] What does it take (looking at `Mason`) to use this PDE on NixOS?

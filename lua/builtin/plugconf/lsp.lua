@@ -48,8 +48,13 @@ lsp.ensure_installed({
   'lua_ls',
 })
 
--- We always want LSP for lua.
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+-- We always want LSP for lua, and we want it in Teej's configuration.
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls({
+  Lua = {
+    workspace = { checkThirdParty = false },
+    telemetry = { enable = false },
+  },
+}))
 
 -- Custom LSP configurations
 local custom_lsp_path = vim.api.nvim_get_runtime_file(YOUR_LSP_SERVERS, false)[1]
