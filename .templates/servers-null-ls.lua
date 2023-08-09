@@ -7,12 +7,12 @@
 require('mason-null-ls').setup({
   automatic_installation = true,
   ensure_installed = {
+    'black',
+    --'clang-format',
     --'cpplint',
+    'markdownlint',
     'mypy',
     'ruff',
-
-    --'clang-format',
-    'black',
   },
 })
 
@@ -23,13 +23,17 @@ null_ls.setup({
     -- Configure the tools you have installed and make sure they're among null-ls' built-ins:
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 
-    null_ls.builtins.diagnostics.clang_check, -- Not in Mason, so you're on your own!
+    -- Linters, static checks
+    null_ls.builtins.diagnostics.clang_check, -- Cool linter, alas not in Mason, so you're on your own!
     --null_ls.builtins.diagnostics.cpplint,     -- Google style cpp
+    null_ls.builtins.diagnostics.markdownlint,
     null_ls.builtins.diagnostics.mypy,
     null_ls.builtins.diagnostics.ruff,
 
+    -- Formatters
     null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.clang_format
+    null_ls.builtins.formatting.clang_format,
+    null_ls.builtins.formatting.markdownlint,
   }
 })
 

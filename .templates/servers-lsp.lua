@@ -14,6 +14,8 @@ require('lspconfig').gopls.setup({})                           -- Rustacean's as
 -- FIXME Not working with Mason, can't find the right hls version.
 require('lspconfig').hls.setup({})             -- Install Haskell via ghcup and let Mason handle its LS.
 
+require('lspconfig').marksman.setup({})        -- Markdown support, install via Mason.
+
 require('lspconfig').powershell_es.setup({})   -- FIXME Linux, Windows: Spawning language server with cmd: `pwsh` failed.
 require('lspconfig').pyright.setup({})         -- Install via Mason.
 require('lspconfig').sqlls.setup({})           -- Via Mason, supports MySQL, PostgreSQL, and SQLite3.

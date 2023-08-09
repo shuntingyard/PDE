@@ -50,6 +50,7 @@ Is not tracked by Git, and contains:
 - directory `./lsp` with template-based configuration files for Language Servers and `null-ls`.
 
 A note on Windows: soft links are created in a (old school) command prompt - Windows 10 even requires admin privileges for it - e.g.:
+
 ```sh
 mklink treesitter.lua ..\..\optional\available\treesitter.lua
 ```
@@ -71,6 +72,6 @@ Stuff to copy to `lua/yourdir/lsp/` and adapt for specific purposes.
 
 [Why should I learn nvim?](https://ofirgall.github.io/learn-nvim/)
 
-https://www.freecodecamp.org/news/vim-language-and-motions-explained/
+<https://www.freecodecamp.org/news/vim-language-and-motions-explained/>
 
-https://blog.elvessousa.com.br/en/post/vim-part-3
+<https://blog.elvessousa.com.br/en/post/vim-part-3>
