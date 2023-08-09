@@ -16,7 +16,7 @@ require('lspconfig').hls.setup({})             -- Install Haskell via ghcup and 
 
 require('lspconfig').marksman.setup({})        -- Markdown support, install via Mason.
 
-require('lspconfig').powershell_es.setup({})   -- FIXME Linux, Windows: Spawning language server with cmd: `pwsh` failed.
+require('lspconfig').powershell_es.setup({})   -- Works via Mason with 'pwsh' (PowerShell 7) on your path.
 require('lspconfig').pyright.setup({})         -- Install via Mason.
 require('lspconfig').sqlls.setup({})           -- Via Mason, supports MySQL, PostgreSQL, and SQLite3.
 require('lspconfig').yamlls.setup({})          -- Install via Mason. TODO smoke-test

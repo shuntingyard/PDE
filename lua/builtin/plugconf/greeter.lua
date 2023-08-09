@@ -20,7 +20,8 @@ local db = require('dashboard')
 
 local stats = require('lazy').stats
 local loaded = stats().loaded
-local loadtime = tonumber(string.format('%.2f', stats().times.LazyDone - stats().times.LazyStart))
+local loadtime = tonumber(string.format('%.1f', stats().times.LazyDone - stats().times.LazyStart))
+local semver = vim.version().major .. '.' .. vim.version().minor .. '.' .. vim.version().patch
 
 db.setup({
   hide = { statusline = true, tabline = true, winbar = true },
@@ -48,7 +49,7 @@ db.setup({
       {
         icon = '  ',
         icon_hl = 'Title',
-        desc = 'Explore files (netrc)                    ',
+        desc = 'Explore files (netrc)           ',
         key = 'n',
         key_hl = 'Number',
         action = ':Explore'
@@ -72,8 +73,8 @@ db.setup({
       {
         icon = '  ',
         icon_hl = 'Title',
-        desc = 'Learn Vim Movements with Tutor or VimBeGood',
-        key = 't',
+        desc = 'Practise vim movements',
+        key = 'm',
         key_hl = 'Number',
         action = ':MyTutor',
       },
@@ -86,7 +87,7 @@ db.setup({
         action = ':q',
       },
     },
-    footer = { 'Lazy loaded ' .. loaded .. ' plugins in ' .. loadtime .. 'ms' }
+    footer = { 'Neovim ' .. semver .. ' | lazy loaded ' .. loaded .. ' plugins in ' .. loadtime .. 'ms' }
   }
 })
 

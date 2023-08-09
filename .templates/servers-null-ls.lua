@@ -24,7 +24,7 @@ null_ls.setup({
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 
     -- Linters, static checks
-    null_ls.builtins.diagnostics.clang_check, -- Cool linter, alas not in Mason, so you're on your own!
+    --null_ls.builtins.diagnostics.clang_check, -- Cool linter, alas not in Mason, so you're on your own!
     --null_ls.builtins.diagnostics.cpplint,     -- Google style cpp
     null_ls.builtins.diagnostics.markdownlint,
     null_ls.builtins.diagnostics.mypy,
