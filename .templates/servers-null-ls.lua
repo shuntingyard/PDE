@@ -7,12 +7,12 @@
 require('mason-null-ls').setup({
   automatic_installation = true,
   ensure_installed = {
+    'black',
+    --'clang-format',
     --'cpplint',
+    'markdownlint',
     'mypy',
     'ruff',
-
-    --'clang-format',
-    'black',
   },
 })
 
@@ -25,11 +25,14 @@ null_ls.setup({
 
     null_ls.builtins.diagnostics.clang_check, -- Not in Mason, so you're on your own!
     --null_ls.builtins.diagnostics.cpplint,     -- Google style cpp
+    null_ls.builtins.diagnostics.markdownlint,
     null_ls.builtins.diagnostics.mypy,
     null_ls.builtins.diagnostics.ruff,
 
+    null_ls.builtins.formatting.markdownlint,
     null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.clang_format
+    null_ls.builtins.formatting.clang_format,
+
   }
 })
 

@@ -16,7 +16,7 @@ vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Next search result, cursor center sc
 vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Prev search result, cursor center screen' })
 
 -- Me
-vim.keymap.set('n', '<leader>e', vim.cmd.Lexplore, { desc = 'Toggle netrw' })
+vim.keymap.set('n', '<leader>n', vim.cmd.Lexplore, { desc = 'Toggle netrw' })
 --vim.keymap.set('n', '<leader>s', vim.cmd.split, { desc = 'Split window' })
 --vim.keymap.set('n', '<leader>v', vim.cmd.vsplit, { desc = 'Vsplit window' })
 vim.keymap.set('n', '<PageDown>', '<PageDown>zz', { desc = 'Page down, cursor center screen' })
