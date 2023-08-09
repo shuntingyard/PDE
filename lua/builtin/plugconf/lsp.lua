@@ -2,6 +2,10 @@ local YOUR_LSP_SERVERS = 'lua/yourdir/lsp/servers-lsp.lua'
 
 local lsp = require('lsp-zero').preset({})
 
+local patient_buf_format = function()
+  vim.lsp.buf.format({ timeout_ms = 5000 })
+end
+
 lsp.on_attach(function(_, bufnr)
   lsp.default_keymaps({ buffer = bufnr, preserve_mappings = false })
 
@@ -16,7 +20,7 @@ lsp.on_attach(function(_, bufnr)
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-  nmap('<leader>bf', vim.lsp.buf.format, '[B]uffer [F]ormat')
+  nmap('<leader>bf', patient_buf_format, '[B]uffer [F]ormat')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
