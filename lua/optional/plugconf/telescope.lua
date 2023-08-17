@@ -1,13 +1,46 @@
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
-    layout_strategy = 'vertical',
-    layout_config = { height = 0.8, width = 0.8 },
     mappings = {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
       },
+    },
+  },
+  -- Vertical layout strategy: picker's drop-downs seem to be more robust.
+  pickers = {
+    -- Mapped to some key here
+    git_files = {
+      theme = "dropdown",
+      layout_strategy = 'center',
+      layout_config = { height = 0.4, width = 0.85 },
+    },
+    find_files = {
+      theme = "dropdown",
+      layout_strategy = 'center',
+      layout_config = { height = 0.4, width = 0.85 },
+    },
+    grep_string = {
+      theme = "dropdown",
+      layout_strategy = 'center',
+      layout_config = { height = 0.4, width = 0.85 },
+    },
+    live_grep = {
+      theme = "dropdown",
+      layout_strategy = 'center',
+      layout_config = { height = 0.4, width = 0.85 },
+    },
+    diagnostics = {
+      theme = "dropdown",
+      layout_strategy = 'center',
+      layout_config = { height = 0.4, width = 0.85 },
+    },
+    -- Used in greeter
+    oldfiles = {
+      theme = "dropdown",
+      layout_strategy = 'center',
+      layout_config = { height = 0.4, width = 0.85 },
     },
   },
 }

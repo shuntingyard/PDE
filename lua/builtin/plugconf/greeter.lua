@@ -50,7 +50,7 @@ db.setup({
         icon = '  ',
         icon_hl = 'Title',
         desc = 'Explore files (netrc)           ',
-        key = 'n',
+        key = 'f',
         key_hl = 'Number',
         action = ':Explore'
       },

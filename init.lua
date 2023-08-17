@@ -108,7 +108,8 @@ require('lazy').setup({
   {
     -- Supports commentstring, see: `:h comment.commentstring`.
     -- Supports line and block comments.
-    'numToStr/Comment.nvim', opts = {}
+    'numToStr/Comment.nvim',
+    opts = {}
   },
 
   -- Better editing: parenthesis completion

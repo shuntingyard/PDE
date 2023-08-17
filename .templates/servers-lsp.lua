@@ -4,7 +4,7 @@
       When a copy of this is placed inside directory "$XDG_CONFIG_HOME/nvim/lua/yourdir/lsp/", and named
       "servers-lsp.lua", it will be evaluated with Lua's `dofile` function.
 
-      Adapt copy according to specific use-cases:
+      In your copy do add servers according to specific use-cases:
 ]]
 require('lspconfig').ansiblels.setup({})                       -- `:set ft=yaml.ansible`
 require('lspconfig').bashls.setup({})                          -- Via Mason (bash-language-server)
