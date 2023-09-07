@@ -45,7 +45,7 @@ vim.o.timeoutlen = 500 -- Decrease time to enter a keymap sequence
 vim.o.undofile = true
 
 -- Completion
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = 'menu,menuone,preview,noselect'
 
 -- Mouse and system clipboard
 vim.o.mouse = 'a'
