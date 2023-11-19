@@ -76,7 +76,7 @@ require('lazy').setup({
   }, -- Might want to include 'NeogitOrg/neogit' (Magit-like) at a later point in time.
 
   -- LSP specials for Neovim's lua API
-  { 'folke/neodev.nvim',       opts = {} },
+  { 'folke/neodev.nvim',   opts = {} },
 
   -- LSP
   {
@@ -90,16 +90,23 @@ require('lazy').setup({
 
       -- Autocompletion
       {
-        'hrsh7th/nvim-cmp',               -- Required
+        'hrsh7th/nvim-cmp', -- Required
         dependencies = {
-          'L3MON4D3/LuaSnip',             -- Required
-          'saadparwaiz1/cmp_luasnip',     -- Association with nvim-cmp source
+          'hrsh7th/cmp-buffer',
+          'hrsh7th/cmp-cmdline',          -- Vim command line completion
           'hrsh7th/cmp-nvim-lsp',         -- Required, provides LSP completion capabilities.
+          'hrsh7th/cmp-nvim-lua',         -- A bunch of nice Lua stuff
+          'hrsh7th/cmp-path',
+          'L3MON4D3/LuaSnip',             -- Required
           'rafamadriz/friendly-snippets', -- More user-friendly snippets
+          'saadparwaiz1/cmp_luasnip',     -- Association with nvim-cmp source
         },
       },
     },
   },
+
+  -- Experimental, cmp menu enrichment by pictogram or text
+  { 'onsails/lspkind-nvim' },
 
   -- Heuristics for expandtab and shiftwidth
   'tpope/vim-sleuth',

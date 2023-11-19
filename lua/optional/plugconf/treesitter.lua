@@ -1,5 +1,6 @@
 -- This is very much Teej's configuration. See if we would want to change details over time.
 
+---@diagnostic disable-next-line: missing-fields
 require('nvim-treesitter.configs').setup {
   -- Define the bare minimum of languages to be installed.
   ensure_installed = { 'vimdoc', 'vim', 'lua' },
