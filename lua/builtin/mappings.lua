@@ -23,27 +23,4 @@ vim.keymap.set('n', '<leader>f', vim.cmd.Lexplore, { desc = 'Toggle netrw' })
 vim.keymap.set('n', '<C-f>', '<C-f>zz', { desc = 'Page down, cursor center screen' })
 vim.keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'Page up, cursor center screen' })
 
--- Me for `luasnip`
---[[
-if pcall(require, 'luasnip') then
-  local ls = require('luasnip')
-  vim.keymap.set('i', 'C-k', function() ls.expand() end, { silent = true, desc = 'Expand snippet' })
-  vim.keymap.set({ 'i', 's' }, 'C-l', function() ls.jump(1) end,
-    { noremap = true, silent = true, desc = 'Forward in snippet' })
-  vim.keymap.set({ 'i', 's' }, 'C-j', function() ls.jump(-1) end,
-    { noremap = true, silent = true, desc = 'Back in snippet' })
-  vim.keymap.set({ 'i', 's' }, 'C-e', function()
-    if ls.choice_active() then
-      ls.change_choice(1)
-    end
-  end, { silent = true, desc = 'Change active choice in snippet' })
-end
- ]]
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-keymap("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-keymap("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-keymap("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-keymap("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-
 -- vim: ts=2 sts=2 sw=2 et

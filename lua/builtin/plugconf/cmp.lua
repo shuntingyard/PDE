@@ -18,18 +18,38 @@ cmp.setup {
   },
 
   mapping = cmp.mapping.preset.insert {
-    ['<C-j>'] = cmp.mapping.select_next_item(),
-    ['<C-k>'] = cmp.mapping.select_prev_item(),
+    -- For select next/previous we lean on <C-n>/<C-p>
+    -- (as is customary in Vim insert mode).
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Insert,
-      -- behavior = cmp.ConfirmBehavior.Replace,
+      behavior = cmp.ConfirmBehavior.Insert, --Default made explicit
       select = true,
     },
 
     ['<C-Space>'] = cmp.mapping.complete {},
 
+    -- For now we use tab/backtab, primarily for moving through
+    -- snippet input parms, but also as an alternative for Vim
+    -- insert mode keys.
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif ls.expand_or_locally_jumpable() then
+        ls.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif ls.locally_jumpable(-1) then
+        ls.jump(-1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
   },
 
   -- Order is priority of recommendations:
@@ -86,40 +106,5 @@ cmp.setup.cmdline(':', {
     }
   })
 })
-
------ Testing snippet with input parms --------------------*
-local snip = ls.snippet
----@diagnostic disable-next-line: unused-local
-local node = ls.snippet_node
-local text = ls.text_node
-local insert = ls.insert_node
----@diagnostic disable-next-line: unused-local
-local func = ls.function_node
----@diagnostic disable-next-line: unused-local
-local choice = ls.choice_node
----@diagnostic disable-next-line: unused-local
-local dynamicn = ls.dynamic_node
-
-ls.add_snippets(nil, {
-  all = {
-    snip({
-        trig = "meta",
-        namr = "Metadata",
-        dscr = "Yaml metadata format for markdown"
-      },
-      {
-        text({ "---",
-          "title: " }), insert(1, "note_title"), text({ "",
-        "author: " }), insert(2, "author"), text({ "",
-        "categories: [" }), insert(3, ""), text({ "]",
-        "tags: [" }), insert(4), text({ "]",
-        "comments: true",
-        "---", "" }),
-        insert(0)
-      }),
-
-  },
-})
------------------------------------------------------------*
 
 -- vim: ts=2 sts=2 sw=2 et
