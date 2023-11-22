@@ -2,7 +2,7 @@
 
   Much influenced by
 
-    - Teej's https://github.com/nvim-lua/kickstart.nvim
+    - TJ's https://github.com/nvim-lua/kickstart.nvim
     - ThePrimeagen's "Neovim RC From Scratch" (https://youtu.be/w7i4amO_zaE)
 
 ]]
@@ -28,8 +28,20 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
 
+  -- Load plenary very early in order to avoid false negatives on modules when testing.
+  { 'nvim-lua/plenary.nvim', priority = 1000 },
+
   -- A balanced colorscheme that even works in the Linux console. See `:help sonokai.txt`
-  { 'sainnhe/sonokai',   priority = 1000 },
+  {
+    'sainnhe/sonokai',
+    priority = 1000,
+    config = function()
+      vim.g.sonokai_style = 'atlantis' -- default, atlantis, andromeda, shusia, maia, espresso
+      vim.g.sonokai_better_performance = 1
+      vim.g.sonokai_transparent_background = 1
+      vim.cmd.colorscheme("sonokai")
+    end,
+  },
 
   -- Status Line
   {
@@ -46,7 +58,7 @@ require('lazy').setup({
   },
 
   -- Progress updates for LSP
-  { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} }, -- `opts = {}` is equivalent to setup({})
+  { 'j-hui/fidget.nvim',     tag = 'legacy', opts = {} }, -- `opts = {}` is equivalent to setup({})
 
   -- Git
   {
@@ -138,7 +150,7 @@ require('lazy').setup({
 
 }, {})
 
--- Lua objects human-readable - thanks bashbunni & Teej :)
+-- Lua objects human-readable - thanks bashbunni & TJ :)
 P = function(v)
   print(vim.inspect(v))
   return v

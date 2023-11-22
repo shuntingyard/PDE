@@ -1,4 +1,4 @@
--- This is Teej's debug.lua (DAP) example.
+-- This is TJ's debug.lua (DAP) example.
 --
 -- TODO make this extensible for languages besides Go via config files in 'lua/yourdir/...'
 

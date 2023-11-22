@@ -13,10 +13,6 @@ vim.g.netrw_banner = 0    -- Use `I` inside netrw to show it temporarily.
 vim.o.background = 'dark'
 vim.o.t_Co = 256
 vim.o.termguicolors = true
-vim.g.sonokai_style = 'atlantis' -- default, atlantis, andromeda, shusia, maia, espresso
-vim.g.sonokai_better_performance = 1
-vim.g.sonokai_transparent_background = 1
-vim.cmd.colorscheme('sonokai')
 -- TODO Set visual highlighting that looks nice in Linux terminals.
 vim.wo.signcolumn = 'yes'
 

@@ -52,7 +52,7 @@ lsp.ensure_installed({
   'lua_ls',
 })
 
--- We always want LSP for lua, and we want it in Teej's configuration.
+-- We always want LSP for lua, and we want it in TJ's configuration.
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls({
   Lua = {
     workspace = { checkThirdParty = false },
@@ -68,5 +68,24 @@ end
 
 -- Run setup
 lsp.setup()
+
+-- Semgrep experiments (Remember: there's a more robust way to *integrate* new servers:
+-- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/lsp.md#custom-servers)
+
+--[[ 
+local lsp_configurations = require('lspconfig.configs')
+
+if not lsp_configurations.semgrep then
+  lsp_configurations.semgrep = {
+    default_config = {
+      name = 'semgrep',
+      cmd = { 'semgrep', 'lsp', '--debug' }, -- Last optional arg is --verbose or --debug for logging.
+      filetypes = { 'html', 'python', 'rust' },
+      root_dir = require('lspconfig.util').root_pattern('')
+    }
+  }
+end
+require('lspconfig').semgrep.setup({})
+]]
 
 -- vim: ts=2 sts=2 sw=2 et

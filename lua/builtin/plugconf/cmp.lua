@@ -29,27 +29,6 @@ cmp.setup {
 
     ['<C-Space>'] = cmp.mapping.complete {},
 
-    -- For now we use tab/backtab, primarily for moving through
-    -- snippet input parms, but also as an alternative for Vim
-    -- insert mode keys.
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif ls.expand_or_locally_jumpable() then
-        ls.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif ls.locally_jumpable(-1) then
-        ls.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
   },
 
   -- Order is priority of recommendations:
@@ -66,7 +45,7 @@ cmp.setup {
     format = lspkind.cmp_format {
       mode = 'symbol_text', -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
       with_text = true,
-      menu = {              -- Teej's labels below, possibly to be adapted.
+      menu = {              -- TJ's labels below, possibly to be adapted.
         buffer = "[buf]",
         luasnip = "[snip]",
         nvim_lsp = "[LSP]",

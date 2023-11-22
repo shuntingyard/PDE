@@ -12,6 +12,7 @@ require('lspconfig').clangd.setup({})                          -- Via Mason unle
 require('lspconfig').docker_compose_language_service.setup({}) -- Install via Mason.
 require('lspconfig').dockerls.setup({})                        -- Via Mason (dockerfile-language-server)
 require('lspconfig').gopls.setup({})                           -- `go install ... gopls@latest`
+require('lspconfig').html.setup({})
 require('lspconfig').jsonls.setup({})                          -- Via Mason (json-lsp)
 require('lspconfig').marksman.setup({})                        -- Markdown support, install via Mason.
 require('lspconfig').powershell_es.setup({})                   -- Works via Mason with 'pwsh' (PowerShell 7) on your path.
