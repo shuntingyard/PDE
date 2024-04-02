@@ -47,7 +47,14 @@ if pcall(require, 'luasnip') then
       ls.change_choice(1)
     end
   end, { silent = true, desc = 'Select within list on choice node' })
-
 end
+
+-- lsp_lines
+vim.keymap.set(
+  "",
+  "<Leader>v",
+  require("lsp_lines").toggle,
+  { desc = "Toggle [V]irtual LSP lines" }
+)
 
 -- vim: ts=2 sts=2 sw=2 et

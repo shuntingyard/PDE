@@ -18,6 +18,7 @@ require('lspconfig').marksman.setup({})                        -- Markdown suppo
 require('lspconfig').powershell_es.setup({})                   -- Works via Mason with 'pwsh' (PowerShell 7) on your path.
 require('lspconfig').pyright.setup({})                         -- Install via Mason.
 require('lspconfig').sqlls.setup({})                           -- For MySQL, PostgreSQL, SQLite3 - wants '.sqllsrc.json' in project root.
+require('lspconfig').rnix.setup({})
 require('lspconfig').yamlls.setup({})                          -- Via Mason (yaml-language-server)
 
 require('lspconfig').hls.setup {
