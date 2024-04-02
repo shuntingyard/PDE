@@ -59,21 +59,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Too much clutter for my feeling, so diagnostics are not underlined.
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(
-      vim.lsp.diagnostic.on_publish_diagnostics,
-      {
-        underline = false
-      }
-    )
-
--- Without underlining 'virtual_text' is rather nice,
---  but recently we switched it off in order to test the `lsp_lines` plugin.
-vim.diagnostic.config({
-  virtual_text = false,
-  virtual_lines = {
-    only_current_line = true,
-    highlight_whole_line = false,
+  vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
+    underline = false
   }
-})
+)
+
+-- Without underlining 'virtual_text' is rather nice.
+vim.diagnostic.config({ virtual_text = true })
 
 -- vim: ts=2 sts=2 sw=2 et
